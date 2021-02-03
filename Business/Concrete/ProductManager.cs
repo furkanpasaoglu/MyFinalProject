@@ -10,7 +10,7 @@ namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        IProductDal _productDal;
+        private IProductDal _productDal;
 
         public ProductManager(IProductDal productDal)
         {
@@ -19,8 +19,8 @@ namespace Business.Concrete
 
         public List<Product> GetAll()
         {
-            //İş kodları
-            //Yetkisi var mı?
+            //İş Kodları
+            //Yetkisi Var mı?
 
             return _productDal.GetAll();
         }
