@@ -7,7 +7,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"server=FURKAN-PC\SQLEXPRESS;Database=northwind; Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"server=FURKAN-PC\SQLEXPRESS;Database=Northwind; Trusted_Connection=true");
         }
 
         public DbSet<Product> Products { get; set; }
