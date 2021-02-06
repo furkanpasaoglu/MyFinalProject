@@ -11,12 +11,19 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
+            //Data Transformation Object = Dtos
+            //IoC
+            //CategoryTest();
+            //ProductTest();
+        }
+
+        private static void CategoryTest()
+        {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
             foreach (var category in categoryManager.GetAll())
             {
                 Console.WriteLine(category.CategoryName);
             }
-            //ProductTest();
         }
 
         private static void ProductTest()
