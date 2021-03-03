@@ -21,5 +21,7 @@
 
         public static string AuthorizationDenied = "Yetkiniz yok";
         public static string UserAdded = "Kullanıcı eklendi";
+        public static string ProductDeleted = "Ürün başarıyla silindi";
+        public static string ProductUpdated = "Ürün başarıyla güncellendi";
     }
 }
