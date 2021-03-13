@@ -4,6 +4,8 @@ using Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using AutoMapper;
 using Business.BusinessAspects.Autofac;
 using Business.CCS;
 using Business.Constants;
@@ -24,14 +26,13 @@ namespace Business.Concrete
     {
         private IProductDal _productDal;
         private ICategoryService _categoryService;
-
         public ProductManager(IProductDal productDal, ICategoryService categoryService)
         {
             _productDal = productDal;
             _categoryService = categoryService;
         }
 
-        [CacheAspect] //key,value
+        [CacheAspect] 
         public IDataResult<List<Product>> GetAll()
         {
             if (DateTime.Now.Hour==1)
@@ -53,7 +54,7 @@ namespace Business.Concrete
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
         {
-            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());
+            return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetails());//
         }
 
         [CacheAspect]

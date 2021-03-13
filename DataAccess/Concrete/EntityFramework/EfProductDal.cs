@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using Core.DataAccess.EntityFramework;
+using Core.DependencyResolvers;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace DataAccess.Concrete.EntityFramework
 {
@@ -15,13 +18,14 @@ namespace DataAccess.Concrete.EntityFramework
             using (NorthwindContext context = new NorthwindContext())
             {
                 var result = from p in context.Products
-                    join c in context.Categories on p.CategoryId equals c.CategoryId
-                    select new ProductDetailDto
-                    {
-                        ProductId = p.ProductId, ProductName = p.ProductName,
-                        CategoryName = c.CategoryName,
-                        UnitsInStock = p.UnitsInStock
-                    }; //sonuncuyu column olarak getir.
+                             join c in context.Categories on p.CategoryId equals c.CategoryId
+                             select new ProductDetailDto
+                             {
+                                 ProductId = p.ProductId,
+                                 ProductName = p.ProductName,
+                                 CategoryName = c.CategoryName,
+                                 UnitsInStock = p.UnitsInStock
+                             };
                 return result.ToList();
             }
         }

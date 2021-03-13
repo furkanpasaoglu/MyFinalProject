@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
+using AutoMapper;
 using Business.Abstract;
 using Business.CCS;
 using Business.Concrete;
@@ -8,6 +9,8 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
+using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 
 namespace Business.DependencyResolvers.Autofac
